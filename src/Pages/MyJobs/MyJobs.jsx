@@ -14,7 +14,9 @@ function MyJobs() {
   const itemPerPage = 4;
 
   useEffect(() => {
-    fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/all-jobs`)
+    fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/all-jobs`, {
+      mode: "no-cors",
+    })
       .then(res => res.json())
       .then(data => {
         const finalData = data.filter(item => item?.author === user?.email);
@@ -26,8 +28,9 @@ function MyJobs() {
   const handleSearch = event => {
     const searchTerms = event.target.value;
     setSearchInput(searchTerms);
-    const finalInput = jobs.filter(item =>
-      item?.jobTitle.toLowerCase().indexOf((searchTerms.toLowerCase())) !== -1
+    const finalInput = jobs.filter(
+      item =>
+        item?.jobTitle.toLowerCase().indexOf(searchTerms.toLowerCase()) !== -1
     );
     setJobs(finalInput);
     console.log(finalInput);
@@ -129,10 +132,22 @@ function MyJobs() {
           <div className="text-primary mt-5">
             {/* pagination */}
             {currentPage > 1 && (
-              <button className="text-[16px] font-medium hover:text-blue hover:underline" type="submit" onClick={previousPage}>Previous Page</button>
+              <button
+                className="text-[16px] font-medium hover:text-blue hover:underline"
+                type="submit"
+                onClick={previousPage}
+              >
+                Previous Page
+              </button>
             )}
             {indexOfLastItem < jobs.length && (
-              <button className="text-[16px] font-medium hover:text-blue hover:underline" type="submit" onClick={nextPage}>Next Page</button>
+              <button
+                className="text-[16px] font-medium hover:text-blue hover:underline"
+                type="submit"
+                onClick={nextPage}
+              >
+                Next Page
+              </button>
             )}
           </div>
         </div>
