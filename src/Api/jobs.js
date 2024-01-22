@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 export const saveJobs = item => {
-  fetch(`http://localhost:5000/add-jobs`, {
+  fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/add-jobs`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -24,7 +24,7 @@ export const saveJobs = item => {
 };
 
 export const updateJobs=(data, id)=>{
-  fetch(`http://localhost:5000/update-jobs/${id}`, {
+  fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/update-jobs/${id}`, {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
@@ -57,7 +57,7 @@ export const deleteJobs = id => {
     confirmButtonText: "Yes, delete it!",
   }).then(result => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:5000/job/${id}`, {
+      fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/job/${id}`, {
         method: "DELETE",
       })
         .then(res => res.json())

@@ -14,7 +14,7 @@ function MyJobs() {
   const itemPerPage = 4;
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-jobs")
+    fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/all-jobs`)
       .then(res => res.json())
       .then(data => {
         const finalData = data.filter(item => item?.author === user?.email);
