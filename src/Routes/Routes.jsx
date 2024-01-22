@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
       {
         path: '/edit/:id',
         element: <PrivateRoute><Edit /></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/all-jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://job-portal-server-ifva1t51z-guljer77.vercel.app/all-jobs/${params.id}`)
       }
     ] 
   },
